@@ -1,18 +1,17 @@
-# UNMAINTAINED ncdapi (inofficial netcup DNS API Client)
+# ncdapi - (unofficial) Netcup DNS API Bash Client
 
-This script is currently unmaintained. Due to the fact that changes need at least 10 minutes to be applied and the api still does not support setting a ttl per record.
+## About
 
-> [!IMPORTANT]
-> This repo was archived, because the client uses an old API. The entire DNS infrastructure and API could hopefully be replaced by an excellent one in 2024.
+- a fork of unmaintained [ncdapi](https://github.com/linxside/ncdapi)
 
 ## WARNING
 This client is well tested, but it is possible that some actions provoke a bug, so the use of this client is on your own risk and may result in lost of your zone data.
 
-### Requirements
+## Requirements
 - jq (a json parser)
 - curl
 
-### Credentials
+## Credentials
 To use this script you must replace the values at beginning of the script with your:
 ```
 #Credentials
@@ -20,7 +19,7 @@ apikey=YOUR_API_KEY
 apipw=YOUR_API_PASSWORD
 cid=YOUR_CUSTOMERNUMBER
 ```
-### How to use
+## How to use
 ```
 IMPORTANT: Only ONE Argument like -N or -dN
 If you have a string which is including spaces use "around your string"
@@ -46,7 +45,7 @@ Delete Record:   ncdapi.sh -D 1234567 @ example.com A 127.0.0.1
 Change SOA:	 ncdapi.sh -S example.com 3600 28800 7200 1209600 true
 ```
 
-### Functions
+## Functions
 * add new record
 * modify record/SOA
 * delete record
@@ -54,7 +53,8 @@ Change SOA:	 ncdapi.sh -S example.com 3600 28800 7200 1209600 true
 * backup/restore of zone + SOA
 * If the api returns a failure the session will automatically make invalid and the plain JSON from the api will be written to stdout
 
-### TODO
+## TODO
+- get credentials from environment variables optionally load them from a .env file
 - DynDNS capability if the api get the possibility for per record TTL in near future
 - ...
 
